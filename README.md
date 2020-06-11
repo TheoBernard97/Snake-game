@@ -6,6 +6,15 @@ Current live version : null
 
 This project is build with the MERN (MongoDB, Express, React, Node) stack.
 
+#### Front-Dependencies :
+
+- react-router-dom
+- styled-components
+
+#### Front-Dependencies :
+
+- express
+
 ### Commands
 
 #### Front-end :
