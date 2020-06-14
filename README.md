@@ -6,7 +6,7 @@ Current live version : null
 
 - Vue.js
 - Node.js
-- MongoDB.
+- MongoDB
 
 #### Front-Dependencies :
 
