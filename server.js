@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
 require("dotenv").config();
-// var cors = require('cors');
-// var bodyParser = require('body-parser');
-// var apiRouter = require("./apiRouter").router;
+var cors = require("cors");
+var bodyParser = require("body-parser");
+var apiRouter = require("./apiRouter").router;
 const mongoose = require("mongoose");
 
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true }, (err) => {
@@ -14,32 +14,17 @@ mongoose.connect(process.env.DB_URI, { useNewUrlParser: true }, (err) => {
   console.log("Successfully connected to mongodb");
 });
 
-// app.use(cors());
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-// app.use("/api/", apiRouter());
+app.use("/api/", apiRouter());
 
 const port = 5000;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
 
 // MOVE EVERYTHING UNDER THIS COMMENT
-
-const scoreSchema = new mongoose.Schema({
-  username: String,
-  score: Number,
-});
-
-const Score = mongoose.model("Score", scoreSchema);
-
-function getScores() {
-  Score.find()
-    .sort({ score: -1 })
-    .then((scores) => {
-      console.log(scores);
-    });
-}
 
 // function addScore(res, req, err) {
 //   var username = req.body.username;
@@ -57,5 +42,3 @@ function getScores() {
 
 // newScore.save();
 // }
-
-getScores();
