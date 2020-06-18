@@ -1,4 +1,4 @@
-const Score = require("../models/score.js");
+const Score = require("../schema/score.js");
 
 module.exports = {
   getScores(res) {
